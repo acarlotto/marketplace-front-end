@@ -102,8 +102,26 @@ const deleteListing = function(deleteId) {
   })
 }
 
-
 // add patch
+const updateListing = function (data, update_id) {
+  // let index = event.target.id
+  // console.log(app.user.token)
+  return $.ajax({
+    url: app.host + '/listings/' + update_id, // was just id and then app.game.id (didn't work)
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token // store.user.token
+    },
+    data: {
+      "listing": {
+        "user_id": app.user.id,
+        "name": data.listing.name,
+        "description": data.listing.description,
+        "price": data.listing.price
+        }
+    }
+  })
+}
 
 module.exports = {
   addUser,
@@ -113,5 +131,6 @@ module.exports = {
   newListing,
   showListings,
   findAllListings,
-  deleteListing
+  deleteListing,
+  updateListing
 }

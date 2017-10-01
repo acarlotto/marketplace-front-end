@@ -183,7 +183,7 @@
 
          <!-- Append all listings here-->
 <hr>
-         <form class="listings" id='listingsShow'>
+         <form id='listingsShow'>
            <br>
            <p>All Listings:</p>
 
@@ -210,6 +210,22 @@
 <!--end-->
 
 <hr>
+
+
+<div class="row">
+      <form id="updateListing">
+        <h2>Update Your Listing:</h2>
+        <div class="input-group">
+          <label for="title">Name:</label>
+          <input type="text" class="form-control" name="listing[name]" value="" placeholder="">
+          <!--<input type="hidden" name="event[user_id]" value="1">-->
+          <input type="hidden" id="eventId" name="event[event_id]" value="">
+        </div>
+        <input type="submit" name="submit" class="btn btn-info" value="enter">
+      </form>
+  </div>
+
+  <hr>
 
          <div class="album text-muted">
            <div class="container">

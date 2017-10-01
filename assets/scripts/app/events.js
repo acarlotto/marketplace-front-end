@@ -80,6 +80,17 @@ const onDeleteListing = function (event) {
   .catch(appUi.deleteFail)
 }
 
+const updateListing = function (event) {
+  // $('#updateEvent').val(my_id)
+  const data = getFormFields(this)
+  let update_id = data.event.event_id
+  // console.log(data)
+  event.preventDefault()
+  appApi.updateListing(data, update_id)
+  .then(appUi.onUpdateSuccess)
+  .catch(appUi.onUpdateFail)
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -88,5 +99,6 @@ module.exports = {
   onCreateNewListing,
   onGetListings,
   onGetUsersListings,
-  onDeleteListing
+  onDeleteListing,
+  updateListing
 }

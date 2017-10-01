@@ -48,7 +48,9 @@ const onResetFailure = function() {
     console.log('fail')
   }
 
+// VIEW MY LISTINGS BUTTON
   const onSuccessGetListing = function (data) {
+  $('#message').empty()
   const listings = data.listings
   const my_id = data.listings.id
   listings.forEach (function (listing) {
@@ -91,6 +93,16 @@ const deleteFail = function (error) {
   console.error('error')
 }
 
+const onUpdateSuccess = function () {
+  // $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>Todo Item Updated!<b> <br> Click <i>view list</i> to see your changes!' + ' </p></div>')
+  // $('#eventsShow').trigger()
+  console.log('success update')
+}
+
+const onUpdateFail = function () {
+  console.log('fail update')
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -105,5 +117,7 @@ module.exports = {
   onSuccessGetListing,
   onFailureGetListing,
   onSuccessGetAllListings,
-  onFailGetAllListings
+  onFailGetAllListings,
+  onUpdateSuccess,
+  onUpdateFail
 }

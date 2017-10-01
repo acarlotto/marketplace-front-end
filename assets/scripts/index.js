@@ -27,16 +27,25 @@ $(() => {
 
   $(document).on('click', ".deleteListing", appEvents.onDeleteListing)
 
+  $(document).on('submit', "#updateListing", appEvents.updateListing)
+
 // onGetListings to show ALL listings
    $('#listingsShow').click(function () {
      const myDiv = $('#listingsShow')
      myDiv.clearQueue()
      $(this).on('submit', appEvents.onGetListings)
      console.log('hit index.js')
-     $('#message').empty()
-     $('#message').show()
      // console.log('this one')
      // appEvents.onCreateNewEvent()
    })
+
+   $(document).on('click', "#message button", function () {
+    $('#updateListing').show()
+    // $('#message').hide()
+    // $('#eventsShow').hide()
+    let update_id = $(this).attr('id')
+    $('#eventId').val(update_id)
+    // console.log(update_id)
+  })
 
   })
