@@ -62,12 +62,12 @@ const onGetListings = function (id) {
   .catch(appUi.onFailureGetListing)
 }
 
-const onGetUsersListings = function (listing_id) {
-  // console.log('events.js')
+const onGetUsersListings = function (data) {
+  console.log('events.js get all')
   event.preventDefault()
-  appApi.showUserListings(listing_id)
-  .then(appUi.onSuccessGetUserListings)
-  .catch(appUi.onFailureGetUserListings)
+  appApi.findAllListings()
+  .then(appUi.onSuccessGetAllListings)
+  .catch(appUi.onFailureGetAllListings)
 }
 
 module.exports = {
@@ -76,5 +76,6 @@ module.exports = {
   logoutUser,
   resetPassword,
   onCreateNewListing,
-  onGetListings
+  onGetListings,
+  onGetUsersListings
 }

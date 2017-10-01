@@ -68,11 +68,11 @@ const newListing = function(data) {
   })
 }
 
-// show all listings
+// show user listings
 const showListings = function (id) {
   console.log("showing all listings")
   return $.ajax({
-    url: app.host + '/listings/',
+    url: app.host + '/listings/' + app.user.id,
     method: 'GET',
       headers: {
         Authorization: 'Token token=' + app.user.token
@@ -80,13 +80,18 @@ const showListings = function (id) {
     })
   }
 
-// const findAllListings = function() {
-//   return $.ajax({
-//     url: app.host + '/listings',
-//     method: 'GET'
-//   })
-// }
-//
+// get all listings
+const findAllListings = function () {
+  console.log('get all api')
+  return $.ajax({
+    url: app.host + '/listings/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
 // const deleteListing = function(deleteId) {
 //   return $.ajax({
 //     url: app.host + '/listings/' + deleteId,
@@ -106,5 +111,6 @@ module.exports = {
   passwordReset,
   userLogout,
   newListing,
-  showListings
+  showListings,
+  findAllListings
 }

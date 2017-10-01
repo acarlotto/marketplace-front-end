@@ -23,6 +23,7 @@ $(() => {
   $('#passChange').on('submit', appEvents.resetPassword)
 
   $('#create-listing').on('submit', appEvents.onCreateNewListing)
+  $('.showAllListings').on('click', appEvents.onGetUsersListings)
 
 // onGetListings to show ALL listings
    $('#listingsShow').click(function () {

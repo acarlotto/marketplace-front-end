@@ -63,6 +63,21 @@ const onFailureGetListing = function (data) {
   console.error('error')
 }
 
+const onSuccessGetAllListings = function (data) {
+  const listings = data.listings
+  console.log('got all listings')
+  listings.forEach (function (listing) {
+    console.log(listing.name)
+    // console.log(event.id)
+    // console.log(data.events.id)
+    $('#allListings').append('<div class="row" style="text-align: center; color: black"> <h5> ' + listing.name + ' </p></div>')
+    })
+}
+
+const onFailGetAllListings = function () {
+  console.log('failed to get all listings')
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -75,5 +90,7 @@ module.exports = {
   newSuccess,
   newFail,
   onSuccessGetListing,
-  onFailureGetListing
+  onFailureGetListing,
+  onSuccessGetAllListings,
+  onFailGetAllListings
 }
