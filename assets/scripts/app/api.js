@@ -92,15 +92,15 @@ const findAllListings = function () {
   })
 }
 
-// const deleteListing = function(deleteId) {
-//   return $.ajax({
-//     url: app.host + '/listings/' + deleteId,
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token
-//     },
-//     method: 'DELETE'
-//   })
-// }
+const deleteListing = function(deleteId) {
+  return $.ajax({
+    url: app.host + '/listings/' + deleteId,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'DELETE'
+  })
+}
 
 
 // add patch
@@ -112,5 +112,6 @@ module.exports = {
   userLogout,
   newListing,
   showListings,
-  findAllListings
+  findAllListings,
+  deleteListing
 }

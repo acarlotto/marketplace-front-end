@@ -55,7 +55,7 @@ const onResetFailure = function() {
     console.log(listing.name)
     // console.log(event.id)
     // console.log(data.events.id)
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h5> ' + listing.name + ' <a href="javascript:" id="' + listing.id + '" class="deleteEvent">delete</a>  <button type="Submit" id="' + listing.id + '" class="btn btn-info edit">edit</button></h5></p><p hidden id="my_id"> ' + listing.id + ' </p></div>')
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h5> ' + listing.name + ' <a href="javascript:" id="' + listing.id + '" class="deleteListing">delete</a>  <button type="Submit" id="' + listing.id + '" class="btn btn-info edit">edit</button></h5></p><p hidden id="my_id"> ' + listing.id + ' </p></div>')
   })
 }
 
@@ -76,6 +76,19 @@ const onSuccessGetAllListings = function (data) {
 
 const onFailGetAllListings = function () {
   console.log('failed to get all listings')
+}
+
+const deleteSuccess = function () {
+  $('#showChanges').empty()
+  console.log('delete success')
+  $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>ITEM DELETED!<b> <br> Click <i>view list</i> to see your changes!' + ' </p></div>')
+//  $('#message').empty()
+//  onSuccessGetEvent()
+}
+
+const deleteFail = function (error) {
+  // console.log('delete fail')
+  console.error('error')
 }
 
 module.exports = {

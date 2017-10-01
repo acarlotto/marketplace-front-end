@@ -70,6 +70,16 @@ const onGetUsersListings = function (data) {
   .catch(appUi.onFailureGetAllListings)
 }
 
+const onDeleteListing = function (event) {
+  //$('#deleteEvent').val(my_id)
+  const delete_id = $(this).attr('id')
+  console.log(delete_id)
+  event.preventDefault()
+  appApi.deleteListing(delete_id)
+  .then(appUi.deleteSuccess)
+  .catch(appUi.deleteFail)
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -77,5 +87,6 @@ module.exports = {
   resetPassword,
   onCreateNewListing,
   onGetListings,
-  onGetUsersListings
+  onGetUsersListings,
+  onDeleteListing
 }

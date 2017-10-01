@@ -25,12 +25,15 @@ $(() => {
   $('#create-listing').on('submit', appEvents.onCreateNewListing)
   $('.showAllListings').on('click', appEvents.onGetUsersListings)
 
+  $(document).on('click', ".deleteListing", appEvents.onDeleteListing)
+
 // onGetListings to show ALL listings
    $('#listingsShow').click(function () {
      const myDiv = $('#listingsShow')
      myDiv.clearQueue()
      $(this).on('submit', appEvents.onGetListings)
      console.log('hit index.js')
+     $('#message').empty()
      $('#message').show()
      // console.log('this one')
      // appEvents.onCreateNewEvent()
